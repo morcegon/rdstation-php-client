@@ -33,6 +33,24 @@ class RDStationClient
 
     public function createNewLead(string $email = null, array $data = [])
     {
+        /**
+         * Data:
+         * array(
+         * "identificador" => "contact-form",
+         * "nome" => "Renan Andrade",
+         * "empresa" => "Raes Web Studio",
+         * "cargo" => "Founder",
+         * "telefone" => "(11) 2268-4425",
+         * "celular" => "(11) 99999-9999",
+         * "website" => "www.raessolucoes.com.br",
+         * "twitter" => "twitter.com/morcegon",
+         * "facebook" => "facebook.com/morcegon",
+         * "c_utmz" => "",
+         * "created_at" => "",
+         * "tags" => "cofounder, hotlead"
+         * );
+         **/
+
         if (empty($email)) {
             throw new Exception("Please, inform at least the lead email");
         }

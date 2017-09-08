@@ -48,6 +48,29 @@ class RDStationClient
         return false;
     }
 
+    public function updateLead(string $email = null, array $data = [])
+    {
+        if (empty($email)) {
+            throw new Exception("Please, inform at least the lead email");
+        }
+
+        if (empty($data)) {
+            throw new Exception("The data does not be empty");
+        }
+
+        $url = $this->setUrl('leads').$email;
+        $new_data['lead'] = $data;
+        $new_data['auth_token'] = $this->token_private;
+
+        $response = $this->request($url, $new_data, 'PUT');
+
+        if ($response == 200) {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * @param $url RD Station API URL
      * @param array $data

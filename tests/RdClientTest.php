@@ -19,12 +19,24 @@ class RdClientTest extends TestCase
         );
     }
 
-    /** @test **/
+    /** @test */
     public function createNewLead()
     {
         $email = "renan@raessolucoes.com.br";
 
         $result = $this->rd_client->createNewLead($email);
+        $this->assertTrue($result);
+    }
+
+    /** @test */
+    public function updateExistsLead()
+    {
+        $email = "renan@raessolucoes.com.br";
+        $data = [
+            'nome'=>'Renan Roberto de Andrade'
+        ];
+
+        $result = $this->rd_client->updateLead($email, $data);
         $this->assertTrue($result);
     }
 }
